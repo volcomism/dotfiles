@@ -1,0 +1,71 @@
+[user]
+	name = Anthony
+	email = 
+
+[core]
+	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+
+[push]
+	default = upstream
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = auto
+	pager = true
+
+[alias]
+    st = status -s
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+    ci = commit
+    cl = clone --recursive
+    co = checkout
+    l  = log --pretty=oneline -n 20 --graph --abbrev-commit
+    ap = add --patch
+    p = !"git pull; git submodule foreach git pull origin master"
+    amend = commit --amend --reuse-message=HEAD
+    graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+
+[url "git://github.com/"]
+    insteadOf = "github:"
+
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+    insteadOf = "gist:"
+
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
+    pushInsteadOf = https://bitbucket.org/
+
+[github]
+    user = volcomism
+
+[merge]
+    tool = threesome
+
+[mergetool "threesome"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+    trustExitCode = true
+
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	history-view-vpane-position = 358
+	main-window-view = HistoryView

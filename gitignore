@@ -1,0 +1,38 @@
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# Mac
+.DS_Store
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Intellij
+.idea/
+
+# vi
+*~
+Session.vim
+
+# swap
+[._]*.sw[a-z]
+[._]sw[a-z]
+
+# General
+log/
+*.log
+
+# gnupg
+.gnupg
+!.gnupg/gpg*.conf
+
+# python virtual env
+.venv
+
+# linux kernel debs
+linux-*.deb
