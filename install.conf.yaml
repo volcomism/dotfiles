@@ -1,0 +1,43 @@
+# install.conf.yaml
+# This example is based on my install.conf.yaml at the time of the writing:
+# https://github.com/natikgadzhi/dotfiles/blob/main/install.conf.yaml
+#
+# Here's the dotbot config guide: https://github.com/anishathalye/dotbot#configuration
+ 
+# By default, create, relink, and rewrite each config file defined in this config.
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+ 
+# clean will prune any dead symlinks to any of the listed file paths below in the directory.
+- clean: ["~"]
+ 
+# links specify which configuration files from the dotfiles repository to
+# link on a target system, and where they should be located on
+# the target system, and in the repo.
+- link:
+    ~/.gitconfig:
+      path: .gitconfig
+    # Take all of the files and directories in .config dir of this repo,
+    # and link them to the target system
+    # at ~/.config.
+    ~/.config/:
+      glob: true
+      path: .config/*
+    ~/.ansible.cfg:
+      path: .ansible.cfg
+    # This is the neat part: dotbot configuration manages Mackup configuration.
+    ~/.mackup.cfg:
+      path: .mackup.cfg
+
+- create:
+    - ~/.vim/undo-history 
+
+# If you want to run any commands right after the dotfiles setup is complete,
+# you can do that here.
+# For example:
+# - chsh -s $(which fish) to setup your shell, assuming fish is installed.
+# - vim +'PlugInstall --sync' +qa to istall vim plugins, assuming you use vim-plug to manage them.
+- shell: [git submodule update --init --recursive, Installing submodules]
